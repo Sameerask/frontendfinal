@@ -34,9 +34,9 @@ function LeftSideMenu(){
             <Link to="/user/dashboard/medicalStores" className="nav-link">
                 <li class="list-group-item"><img src={storelist} width="25px" height="25px"/> &nbsp; Medical Stores</li>
             </Link>
-            <Link to="/user/dashboard/payment" className="nav-link">
+            {/* <Link to="/user/dashboard/payment" className="nav-link">
                 <li class="list-group-item"><img src={payment} width="25px" height="25px"/> &nbsp; Payment</li>
-            </Link>
+            </Link> */}
             <Link class="nav-link" to="/user/dashboard/logout">
                 <li class="list-group-item"><img src={logout} width="25px" height="25px"/> &nbsp; Logout</li>
             </Link>

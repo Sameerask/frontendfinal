@@ -20,6 +20,8 @@ function Orders(){
                                 <th>Medicine Id</th>
                                 <th>Medicine Name</th>
                                 <th>Quantity</th>
+                                {/* <th>Date</th>
+                                <th>Payment method</th> */}
                                 <th>Payment Status</th>
                                 <th>Status</th>
                             </tr>
@@ -34,7 +36,10 @@ function Orders(){
                                     <td>{e.medicine!=undefined?e.medicine.id:" "}</td>
                                     <td>{e.medicine!=undefined?e.medicine.name:" "}</td>
                                     <td>{e.quantity}</td>
+                                    {/* <td>{e.date}</td>
+                                    <td>{e.paymentmethod}</td> */}
                                     <td>{e.paymentStatus}</td>
+                                    
                                     <td>{e.status}</td>
                             </tr> 
                             </thead>      

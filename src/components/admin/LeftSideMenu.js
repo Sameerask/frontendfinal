@@ -9,6 +9,8 @@ import ordplace from "../../images/ordplace.png";
 import reorderlist from "../../images/reorderlist.jpg";
 import update from "../../images/update.jpg"
 import medlist from "../../images/medlist.jpg"
+import hospitallist from "../../images/hospitallist.png"
+import storelist from "../../images/storelist.png"
 function LeftSideMenu(){
     return (
         <div className="col-md-2">
@@ -48,6 +50,12 @@ function LeftSideMenu(){
             </Link> }
             <Link to="/admin/dashboard/reorderlist" className="nav-link">
                 <li class="list-group-item"><img src={reorderlist} width="25px" height="25px"/> &nbsp; Reorder request list</li>
+            </Link>
+            <Link to="/admin/dashboard/adminhospitallist" className="nav-link">
+                <li class="list-group-item"><img src={hospitallist} width="25px" height="25px"/> &nbsp; Hospital list</li>
+            </Link>
+            <Link to="/admin/dashboard/adminmedstorelist" className="nav-link">
+                <li class="list-group-item"><img src={storelist} width="25px" height="25px"/> &nbsp; Medical store list</li>
             </Link>
             <Link class="nav-link" to="/admin/dashboard/logout">
                 <li class="list-group-item"><img src={logout} width="25px" height="25px"/> &nbsp; Logout</li>

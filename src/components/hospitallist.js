@@ -84,6 +84,7 @@ function Hospital(){ const[message,setMessage] = useState([]);
     const[check,setCheck]=useState(true)
     const[messageEm,setMessageEm] = useState('');
     const[emergencyReq,setEmergencyReq]=useState("Need Medicine");
+    const user_id = sessionStorage.getItem("userid");
     function getHospital(){
          axios.get(`http://localhost:9005/list/hospitals/${location}`).then((e)=>{
              setMessage(e.data);
@@ -95,7 +96,7 @@ function Hospital(){ const[message,setMessage] = useState([]);
             var EmergencyRequest={
 
             }
-            let url=`http://localhost:9005/list/hosiptals/${location}/${emergencyReq}`
+            let url=`http://localhost:9005/list/hospitals/${location}/${emergencyReq}/${user_id}`
             let headers={'Content-Type':'application/json' }
             axios.put(url,EmergencyRequest,{headers}).then((e)=>{
                 console.log(e.data)

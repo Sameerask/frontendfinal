@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Button,Input,Paper } from '@mui/material'
 function AcceptRejectOrder() {
@@ -14,13 +14,40 @@ function AcceptRejectOrder() {
     const [user_idValidation,setUser_idValidation]=useState()
     const [order_idValidation,setOrder_idValidation]=useState()
     const [navigationmesasge,setNavigationMessage]=useState()
+    const[medlist, setMedlist]=useState([])
+        const[selectedItem,setSelectedItem]=useState("select");
+        //const userid = sessionStorage.getItem("userid");
+        useEffect(()=>{
+          axios.get("http://localhost:9005/medicines")
+          .then((response)=>{
+            setMedlist(response.data)
+            console.log(response.data)
+            // setMessaage("Medicine Place ordered")    
+          });
+        },[]);
     return(<div>
 
 <Paper elevation={4} style={{marginTop : "10px", width: "500px", marginLeft:"200px"}}>
             <div style={{marginLeft : "150px"}}>
             <h3  >Requested orders</h3> <br/>
-         Enter medicine Id : <br/>
-         <Input type='number' onChange={(e)=>{ setmedicine_id(e.target.value)}}/><br/> 
+            Select Medicine name
+              <select className="form-control" onChange={(e)=>{
+                console.log(e.target)
+                console.log(e.target.value)
+                console.log(medlist.find(o=> o.id == e.target.value))
+                const selectedMedicine=medlist.find(o=> o.id == e.target.value)
+                //setMedicineName(selectedMedicine.name)
+                setmedicine_id(selectedMedicine.id)
+              }}>
+                <option value="">Select Medicine name</option>
+                {medlist.map(e=>(
+                <option value={e.id} id={e.id} key={e.id}>{e.name}</option>
+                ))
+                }
+                </select>
+                <br/>
+         {/* Enter medicine Id : <br/>
+         <Input type='number' onChange={(e)=>{ setmedicine_id(e.target.value)}}/><br/>  */}
          <p style={{color:"red"}}>{medicine_idValidation}</p>
          Enter quantity:<br/>
          <Input type='number' onChange={(e)=>{setquantity(e.target.value)}}/><br/>

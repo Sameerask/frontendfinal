@@ -92,6 +92,7 @@ function MedicalStore(){
     const[messageEmer,setMessageEmer]=useState('');
     const[emergencyReq,setEmergencyReq]=useState("Emergency request");
     //const[emergencymessage,setEmergencyMessage]=useState('');
+    const user_id = sessionStorage.getItem("userid");
     function getMedicalstore(){
         axios.get(`http://localhost:9005/lists/medicalstore/${area}`).then((e)=>{
             setMessage(e.data);
@@ -104,7 +105,7 @@ function MedicalStore(){
         var EmergencyRequest={
 
         } 
-        let url=`http://localhost:9005/lists/medicalstore/${area}/${emergencyReq}`
+        let url=`http://localhost:9005/lists/medicalstore/${area}/${emergencyReq}/${user_id}`
         let headers={'Content-Type':'application/json' }
         axios.put(url,EmergencyRequest,{headers}).then((e)=>{
             console.log(e.data)

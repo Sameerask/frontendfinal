@@ -36,6 +36,8 @@ import AdminLoginForm from './components/auth/adminlogin';
 import Update from './components/updatestock';
 import Allmedicines from './components/allmedicinelist';
 import Logout from './components/auth/logout';
+import ViewHospitalList from './components/adminhospital';
+import ViewMedStoreList from './components/adminmedstore';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -73,6 +75,8 @@ root.render(
           <Route path="acceptRejectOrders" element={<AcceptRejectOrder />} />
           <Route path="reorderMedicine" element={<Reorder />} />
           <Route path="reorderlist" element={<Reorders/>} />
+          <Route path="adminhospitallist" element={<ViewHospitalList/>} />
+          <Route path="adminmedstorelist" element={<ViewMedStoreList/>} />
           <Route path="logout" element={<Logout />} />
         </Route>
       </Routes>
